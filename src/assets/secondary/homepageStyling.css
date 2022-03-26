@@ -1,0 +1,23 @@
+.slider-element {
+  width: 95% !important;
+}
+
+.home-header-top-text {
+  text-align: center;
+  color: azure;
+}
+
+.horizontal-line-top-homepage {
+  margin: 18px -20px !important;
+  height: 1.5px !important;
+  color: aliceblue;
+}
+
+.slider-arrow-btn {
+  transition: 0.1s;
+  padding: 2px;
+}
+
+.slider-arrow-btn:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,39 @@
+.cd {
+  height: 100%;
+}
+
+.cd .card {
+  height: 100%;
+}
+
+.cd-img {
+  display: block;
+  height: 400px;
+  overflow: hidden;
+}
+
+.card-img-top {
+  height: 100%;
+}
+
+.cd-holder {
+  position: relative;
+  transition: 0.4s;
+}
+
+.cd-holder:hover {
+  transform: scale(1.05);
+}
+.rec-item-wrapper {
+  overflow: unset !important;
+}
+
+.cd-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}

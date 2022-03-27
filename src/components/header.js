@@ -11,9 +11,9 @@ function Header(props) {
   const handleSearch = (event) => {
     event.preventDefault();
     search.search(input).then((data) => {
-      console.log(data.results);
-      search.setData(data.results);
-      localStorage.setItem("myData", JSON.stringify(data.results));
+      console.log(data.data);
+      search.setData(data.data);
+      localStorage.setItem("myData", JSON.stringify(data.data));
       navigate("/search-view");
     });
   };
@@ -22,7 +22,7 @@ function Header(props) {
     <div>
       <Navbar bg="dark" variant="dark" >
         <Container>
-          <Navbar.Brand href="/"><h3>Otaku Zone</h3></Navbar.Brand>
+          <Navbar.Brand href="/">Otaku Zone</Navbar.Brand>
           <Form className="d-flex">
             <FormControl
               type="search"

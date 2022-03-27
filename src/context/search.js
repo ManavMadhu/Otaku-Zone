@@ -5,6 +5,8 @@ export const SearchContext = createContext({
   singleData: {},
   topanimeData: [],
   topMangaData: [],
+  topCharData: [],
+  setTopChar: () => {},
   setTopMData: () => {},
   search: () => {},
   setData: () => {},
@@ -12,5 +14,6 @@ export const SearchContext = createContext({
   setTopData: () => {},
   searchTop: () => {},
   searchTopM: () => {},
-  searchbyID: () => {}
+  searchbyID: () => {},
+  searchTopChar: () => {}
 });

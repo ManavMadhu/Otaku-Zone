@@ -16,10 +16,15 @@ function Singleview() {
   const genre = search.singleData.genres;
 
   return (
-    <div className="home-background single-view-text">
+    <div
+      className="home-background single-view-text"
+      style={{ height: "100vh" }}
+    >
       <Container className="padding-top-style">
         <Row>
-          <h1>{title}</h1>
+          <Col lg={12}>
+            <h1>{title}</h1>
+          </Col>
           <hr />
         </Row>
         <Row>
@@ -36,8 +41,8 @@ function Singleview() {
             </ul>
           </Col>
           <Col lg={4}>
-            <Container>
-              <img src={imageUrl} />
+            <Container className="single-view-img-container">
+              <img src={imageUrl} className="single-view-img"/>
             </Container>
           </Col>
         </Row>

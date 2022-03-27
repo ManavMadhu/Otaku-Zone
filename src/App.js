@@ -2,11 +2,11 @@ import Header from "./components/header";
 import Home from "./pages/home";
 import SearchView from "./pages/searchview";
 import SingleView from "./pages/singleview";
-import { useState, useEffect } from "react";
+import Loginpage from "./pages/loginpage";
+import { useState} from "react";
 import {
   BrowserRouter as Router,
   Routes,
-  Redirect,
   Route,
 } from "react-router-dom";
 import { SearchContext } from "./context/search";
@@ -15,6 +15,7 @@ function App() {
   const [animeData, setAnimeData] = useState([]);
   const [topanimeData, setTopAnimeData] = useState([]);
   const [singleData, setSingleData] = useState({});
+  const [topCharData, settopCharData] = useState([]);
   const [topMangaData, setTopMangaData] = useState([]);
 
   const setTopData = (data) => {
@@ -33,9 +34,13 @@ function App() {
     setTopMangaData(data);
   };
 
+  const setTopChar = (data) => {
+    settopCharData(data);
+  }
+
   const search = async (searchTerm) => {
     const response = await fetch(
-      `https://api.jikan.moe/v3/search/anime?q=${searchTerm}&order_by=title&sort=asc&limit=10`
+      `https://api.jikan.moe/v4/anime?q=${searchTerm}&order_by=title&sort=asc&limit=15`
     );
     return await response.json();
   };
@@ -60,12 +65,20 @@ function App() {
     return await response.json();
   };
 
+  const searchTopChar = async () => {
+    const response = await fetch(
+      `https://api.jikan.moe/v4/top/characters`
+    );
+    return await response.json();
+  }
+
   return (
     <SearchContext.Provider
       value={{
         search,
         searchTop,
         searchTopM,
+        topCharData,
         topMangaData,
         animeData,
         setData,
@@ -74,7 +87,9 @@ function App() {
         setSingle,
         topanimeData,
         setTopData,
-        searchbyID
+        searchbyID,
+        setTopChar,
+        searchTopChar
       }}
     >
       <Router>
@@ -85,6 +100,7 @@ function App() {
               <Route exact path="/" element={<Home />}></Route>
               <Route exact path="/search-view" element={<SearchView />}></Route>
               <Route exact path="/single-view" element={<SingleView  />}></Route>
+              <Route exact path="/login" element={<Loginpage  />}></Route>
             </Routes>
           </main>
         </div>

@@ -17,9 +17,10 @@ function SearchView() {
         setDataExists(false);
       }
     }
-  }, [search]);
+    console.log(search.animeData);
+  }, []);
 
-  return <Container>{(dataExists && <Animelist data={search.animeData}/>) || "Data doesnt Exists"}</Container>;
+  return <div className="home-background"><Container>{(dataExists && <Animelist data={search.animeData}/>) || "Data doesnt Exists"}</Container></div>;
 }
 
 export default SearchView;
